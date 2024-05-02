@@ -1,20 +1,16 @@
-import java.util.Scanner;
 public class Cuadrado extends Shape {
-    Scanner leer = new Scanner(System.in);
-    public void calcularArea(){
-        System.out.println("Ingrese el lado");
-        int lado = leer.nextInt();
-        int area;
-        area = lado * lado * lado * lado;
-        System.out.println(area);
+
+    private double lado;
+    public Cuadrado(double lado) {
+        this.lado = lado;
+    }
+    @Override
+    public double calcularArea() {
+        return lado * lado;
     }
 
-    public void calcularPerimetro(){
-        System.out.println("Ingrese el lado");
-        int lado = leer.nextInt();
-        int area;
-        area = lado * lado;
-        System.out.println(area);
-
+    @Override
+    public double calcularPerimetro() {
+        return 4 * lado;
     }
 }

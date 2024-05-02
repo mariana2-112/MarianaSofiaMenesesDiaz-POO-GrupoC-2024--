@@ -1,24 +1,17 @@
-import java.util.Scanner;
 public class Rombo extends Shape {
-    Scanner leer = new Scanner(System.in);
-    public void calcularArea(){
-        System.out.println("Ingrese la base");
-        int base = leer.nextInt();
-        System.out.println("Ingrese la altura");
-        int altura = leer.nextInt();
-        int area;
-        area = base*altura;
-        System.out.println(area);
-    }
+    private double base, altura;
 
-    public void calcularPerimetro(){
-        System.out.println("Ingrese la base");
-        int base = leer.nextInt();
-        System.out.println("Ingrese la altura");
-        int altura = leer.nextInt();
-        int perimetro;
-        perimetro = base + base + altura + altura;
-        System.out.println(perimetro);
+public Rombo(double base, double altura) {
+    this.base=base;
+    this.altura=altura;
+}
+@Override
+public double calcularArea() {
+    return base * altura;
+}
 
+    @Override
+    public double calcularPerimetro() {
+        return base + base + altura + altura;
     }
 }

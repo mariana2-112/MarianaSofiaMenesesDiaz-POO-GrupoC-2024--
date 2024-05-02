@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
         int figura;
-
-        Rombo rombo1 = new Rombo();
-        Circulo circulo1 = new Circulo();
-        Cuadrado cuadrado1 = new Cuadrado();
+        double radio, base, altura, lado;
+        Rombo rombo1;
+        Circulo circulo1;
+        Cuadrado cuadrado1;
 
         while (true) {
             System.out.println("------------Escoge una figura------------");
@@ -17,26 +17,26 @@ public class Main {
             switch (figura) {
                 case 1:
                     System.out.println("ROMBO");
-                    System.out.println("Area");
-                    rombo1.calcularArea();
-                    System.out.println("Perimetro");
-                    rombo1.calcularPerimetro();
+                    System.out.println("Ingrese la base:");
+                    base = leer.nextDouble();
+                    System.out.println("Ingrese la altura:");
+                    altura = leer.nextDouble();
+                    rombo1 = new Rombo(base, altura);
+                    System.out.println("Area: " + rombo1.calcularArea() + "\nPerimetro: " + rombo1.calcularPerimetro());
                     break;
                 case 2:
                     System.out.println("CIRCULO");
-                    System.out.println("Area");
-                    circulo1.calcularArea();
-                    System.out.println("Perimetro");
-                    circulo1.calcularPerimetro();
+                    System.out.println("Ingrese el radio:");
+                    radio = leer.nextDouble();
+                    circulo1 = new Circulo(radio);
+                    System.out.println("Area: " + circulo1.calcularArea() + "\nPerimetro: " + circulo1.calcularPerimetro());
                     break;
                 case 3:
                     System.out.println("CUADRADO");
                     System.out.println("Ingrese el lado");
-                    int lado = leer.nextInt();
-                    System.out.println("Area");
-                    cuadrado1.calcularArea();
-                    System.out.println("Perimetro");
-                    cuadrado1.calcularPerimetro();
+                    lado = leer.nextDouble();
+                    cuadrado1= new Cuadrado(lado);
+                    System.out.println("Area: " + cuadrado1.calcularArea() + "\nPerimetro: " + cuadrado1.calcularPerimetro());
                     break;
                 case 4:
                     System.out.println("Finalizando programa");
