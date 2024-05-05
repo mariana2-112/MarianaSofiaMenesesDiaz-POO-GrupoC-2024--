@@ -1,49 +1,92 @@
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in);
-        int figura;
 
-        Rombo rombo1 = new Rombo();
-        Circulo circulo1 = new Circulo();
-        Cuadrado cuadrado1 = new Cuadrado();
+        // NullPointerException
+        try {
+            String texto = null;
+            System.out.println(texto.length());
+        } catch (NullPointerException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
 
-        while (true) {
-            System.out.println("------------Escoge una figura------------");
-            System.out.println("1.Rombo, 2.Circulo, 3.Cuadrado o 4.Finalizar");
-            figura = leer.nextInt();
+        // ArrayIndexOutOfBoundsException
+        try {
+            int[] array = {1, 2, 3};
+            System.out.println(array[5]);
+        } catch (ArrayIndexOutOfBoundsException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
 
-            switch (figura) {
-                case 1:
-                    System.out.println("ROMBO");
-                    System.out.println("Area");
-                    rombo1.calcularArea();
-                    System.out.println("Perimetro");
-                    rombo1.calcularPerimetro();
-                    break;
-                case 2:
-                    System.out.println("CIRCULO");
-                    System.out.println("Area");
-                    circulo1.calcularArea();
-                    System.out.println("Perimetro");
-                    circulo1.calcularPerimetro();
-                    break;
-                case 3:
-                    System.out.println("CUADRADO");
-                    System.out.println("Ingrese el lado");
-                    int lado = leer.nextInt();
-                    System.out.println("Area");
-                    cuadrado1.calcularArea();
-                    System.out.println("Perimetro");
-                    cuadrado1.calcularPerimetro();
-                    break;
-                case 4:
-                    System.out.println("Finalizando programa");
-                    return;
-                default:
-                    System.out.println("Ingrese una opcion valida");
-            }
+        // ClassCastException
+        try {
+            Object objeto = new Integer(10);
+            String texto = (String) objeto;
+        } catch (ClassCastException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
+
+        // NumberFormatException
+        try {
+            int numero = Integer.parseInt("abc");
+            System.out.println(numero);
+        } catch (NumberFormatException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
+
+        // IOException
+        try {
+            FileReader archivo = new FileReader("archivo.txt");
+        } catch (IOException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
+
+        // FileNotFoundException
+        try {
+            FileReader archivo = new FileReader("archivo_que_no_existe.txt");
+        } catch (FileNotFoundException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
+
+        // ArithmeticException
+        try {
+            System.out.println(10/0);
+        } catch (ArithmeticException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
+
+        // IllegalArgumentException
+        try {
+            throw new IllegalArgumentException("Argumento ilegal");
+        } catch (IllegalArgumentException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
+
+        // IllegalStateException
+        try {
+            throw new IllegalStateException("Estado ilegal");
+        } catch (IllegalStateException error) {
+            System.out.println(error);
+            System.out.println("  ");
+        }
+
+        // OutOfMemoryError
+        try {
+            int[] array = new int[Integer.MAX_VALUE];
+        } catch (OutOfMemoryError error) {
+            System.out.println(error);
+            System.out.println("  ");
         }
     }
 }
